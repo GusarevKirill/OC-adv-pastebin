@@ -1,5 +1,5 @@
 --[[ This program allows downloading and uploading from and to pastebin.com.
-     Authors: Sangar, Vexatos ]]
+     Authors: Sangar, Vexatos, kaka888 ]]
 local component = require("component")
 local fs = require("filesystem")
 local internet = require("internet")
