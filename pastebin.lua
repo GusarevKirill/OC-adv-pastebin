@@ -148,7 +148,7 @@ end
 
 -- If we come here there was some invalid input.
 io.write("Usages:\n")
-io.write("pastebin put [-f] <file> [expiration date]\n")
+io.write("pastebin put [-f] <file> [<expiration date>]\n")
 io.write("pastebin get [-f] <id> <file>\n")
 io.write("pastebin run [-f] <id> [<arguments...>]\n")
 io.write(" -f: Force overwriting existing files.\n")
