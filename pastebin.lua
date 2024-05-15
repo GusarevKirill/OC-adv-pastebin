@@ -43,7 +43,7 @@ local function get(pasteId, filename)
 end
 
 -- This makes a string safe for being used in a URL.
-function encode(code)
+local function encode(code)
   if code then
     code = string.gsub(code, "([^%w ])", function (c)
       return string.format("%%%02X", string.byte(c))
@@ -55,7 +55,7 @@ end
 
 -- This stores the program in a temporary file, which it will
 -- delete after the program was executed.
-function run(pasteId, ...)
+local function run(pasteId, ...)
   local tmpFile = os.tmpname()
   get(pasteId, tmpFile)
   io.write("Running...\n")
@@ -68,7 +68,7 @@ function run(pasteId, ...)
 end
 
 -- Uploads the specified file as a new paste to pastebin.com.
-function put(path, expiration)
+local function put(path, expiration)
   local config = {}
   local configFile = loadfile("/etc/pastebin.conf", "t", config)
   if configFile then
