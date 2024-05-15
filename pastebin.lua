@@ -68,7 +68,7 @@ function run(pasteId, ...)
 end
 
 -- Uploads the specified file as a new paste to pastebin.com.
-function put(path, expire_date)
+function put(path, expiration)
   local config = {}
   local configFile = loadfile("/etc/pastebin.conf", "t", config)
   if configFile then
@@ -94,7 +94,7 @@ function put(path, expire_date)
         "api_option=paste&" ..
         "api_dev_key=" .. config.key .. "&" ..
         "api_paste_format=lua&" ..
-        "api_paste_expire_date=" .. expire_date .. "&" ..
+        "api_paste_expire_date=" .. expiration .. "&" ..
         "api_paste_name=" .. encode(fs.name(path)) .. "&" ..
         "api_paste_code=" .. encode(data))
 
@@ -148,7 +148,7 @@ end
 
 -- If we come here there was some invalid input.
 io.write("Usages:\n")
-io.write("pastebin put [-f] <file> [<expiration date>]\n")
+io.write("pastebin put [-f] <file> [<expiration>]\n")
 io.write("pastebin get [-f] <id> <file>\n")
 io.write("pastebin run [-f] <id> [<arguments...>]\n")
 io.write(" -f: Force overwriting existing files.\n")
